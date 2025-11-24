@@ -1,0 +1,7 @@
+[project]
+name = "ada-mata-test"
+version = "0.1.0"
+description = "Bottle Cap Color Detection System"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
