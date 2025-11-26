@@ -1,0 +1,27 @@
+model:
+  checkpoint_path: "models/best_model.pt"
+  architecture: "yolov8n"
+  input_size: 640
+
+inference:
+  confidence_threshold: 0.05
+  iou_threshold: 0.45
+  device: "cpu"  # cuda or cpu
+
+output:
+  save_predictions: true
+  output_dir: "results"
+  draw_boxes: true
+  draw_labels: true
+  box_thickness: 2
+  font_scale: 0.5
+
+performance:
+  measure_latency: true
+  warmup_iterations: 10
+  benchmark_iterations: 100
+
+classes:
+  0: "light_blue"
+  1: "dark_blue"
+  2: "others"

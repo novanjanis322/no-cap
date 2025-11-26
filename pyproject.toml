@@ -4,4 +4,24 @@ version = "0.1.0"
 description = "Bottle Cap Color Detection System"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "black>=25.11.0",
+    "click>=8.3.1",
+    "isort>=7.0.0",
+    "numpy>=2.3.5",
+    "opencv-python>=4.11.0.86",
+    "pandas>=2.3.3",
+    "pylint>=4.0.3",
+    "pytest>=9.0.1",
+    "pyyaml>=6.0.3",
+    "seaborn>=0.13.2",
+    "tqdm>=4.67.1",
+    "ultralytics>=8.3.231",
+    "wandb>=0.23.0",
+]
+
+[project.scripts]
+bsort = "bsort.cli:cli"
+
+[tool.setuptools]
+packages = ["bsort"]

@@ -1,0 +1,62 @@
+data:
+  raw_images: "data/raw/images"
+  raw_labels: "data/raw/labels"
+  processed_train_images: "data/processed/train/images"
+  processed_train_labels: "data/processed/train/labels"
+  processed_val_images: "data/processed/val/images"
+  processed_val_labels: "data/processed/val/labels"
+
+# Note: OpenCV HSV uses H: 0-179, S: 0-255, V: 0-255
+# Blue hues are typically 90-130 in OpenCV
+color_thresholds:
+  light_blue:
+    hue_min: 90
+    hue_max: 130
+    saturation_min: 50
+    value_min: 150
+  dark_blue:
+    hue_min: 90
+    hue_max: 130
+    saturation_min: 50
+    value_max: 149
+
+model:
+  model_type: "yolo"
+  architecture: "yolov8n"  # yolov8n, yolov5n, custom
+  pretrained: true
+  num_classes: 3
+  input_size: 640
+
+training:
+  epochs: 100
+  batch_size: 16
+  learning_rate: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0005
+  momentum: 0.9
+  early_stopping_patience: 15
+
+augmentation:
+  enabled: true
+  horizontal_flip: 0.5
+  rotation: 10
+  brightness: 0.2
+  contrast: 0.2
+  saturation: 0.2
+
+split:
+  train_ratio: 0.8
+  val_ratio: 0.2
+  random_seed: 42
+
+output:
+  model_dir: "models"
+  checkpoint_dir: "models/checkpoints"
+  best_model_name: "best_model.pt"
+
+wandb:
+  enabled: true
+  project: "bottlecap-detection"
+  entity: ""
+  name: null 
+  tags: ["yolo", "bottlecap", "color-detection"]
